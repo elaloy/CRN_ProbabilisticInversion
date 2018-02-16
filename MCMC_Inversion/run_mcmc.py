@@ -209,7 +209,7 @@ for i in xrange(0,MCMCPar.n):
     yv,xv=np.histogram(x,bins=bins,density=True)
     delta=np.diff(xv)[0]
     # sum(yv*delta) should be equal to 1
-    xv=xv[:-1]
+    xv=xv[1:]-0.5*(xv[1]-xv[0])
     sub=plt.subplot(2,2,i+1)
     # Plot posterior
     plt.bar(xv,yv,width=0.95*delta, color='b')
